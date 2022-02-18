@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://actors/player/gun_script.gd" type="Script" id=2]
+
+[node name="Gun" type="Sprite"]
+modulate = Color( 0.0470588, 0, 0.619608, 1 )
+position = Vector2( -1, -1 )
+scale = Vector2( 1, 0.164063 )
+z_index = 1
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 53.6301, 6.09524 )
+scale = Vector2( 2.97228, 1 )
+points = PoolVector2Array( 152, 0, 0, 0 )
+width = 9.953
+default_color = Color( 1, 0, 0, 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 34, 6.09524 )
+enabled = true
+cast_to = Vector2( 500, 0 )
+collision_mask = 6
