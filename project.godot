@@ -8,10 +8,26 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://entities/enemies/EnemyBaseClass.gd"
+}, {
+"base": "Node2D",
+"class": "Furniture",
+"language": "GDScript",
+"path": "res://entities/furniture/FurnitureClass.gd"
+} ]
+_global_script_class_icons={
+"Enemy": "",
+"Furniture": ""
+}
+
 [application]
 
 config/name="mini jam 100"
-run/main_scene="res://scenes/prototype.tscn"
+run/main_scene="res://scenes/levels/TestRoom.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -20,8 +36,9 @@ Debug="*res://autoload/debug.gd"
 
 [display]
 
-window/size/resizable=false
-window/size/fullscreen=true
+window/size/height=768
+window/size/test_width=1152
+window/size/test_height=864
 mouse_cursor/custom_image="res://assets/crosshair007.png"
 mouse_cursor/custom_image_hotspot=Vector2( 30, 30 )
 mouse_cursor/tooltip_position_offset=Vector2( 0, 0 )
