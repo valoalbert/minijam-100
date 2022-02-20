@@ -8,6 +8,7 @@ export (int) var points = 100
 enum {
 	PATROL,
 	ENGAGE,
+	DISENGAGE,
 	IDLE,
 	WALK,
 	SHOOT,
@@ -19,7 +20,7 @@ var level_navigation: Navigation2D = null
 var player = null
 var player_spotted: bool = false
 var flipped : float = false
-var state = WALK
+var state = IDLE
 var velocity : Vector2
 
 var _original_position
@@ -28,6 +29,7 @@ var _projectile_scene : PackedScene
 var _able_to_shoot : bool = true
 
 func _ready() -> void:
+	GameManager.connect("player_dead", self, "_reset_enemy")
 	_projectile_scene = preload("res://entities/enemies/Projectile.tscn")
 	_original_position = self.global_position
 	_original_transform = self.global_transform
@@ -45,6 +47,8 @@ func _physics_process(_delta :  float) -> void:
 	
 	if state == DIE:
 		return
+	elif state == DISENGAGE:
+		_stop()
 	else:
 		if state == WALK:
 			speed = 100
@@ -130,23 +134,24 @@ func die():
 	state = DIE
 	$AnimationPlayer.play("ko")
 	$Collider.queue_free()
+	$ShootDistance.queue_free()
 	
 func _on_PatrolTimer_timeout():
 	_flip()
 	pass # Replace with function body.
 
 func _reset_enemy():
-	self.global_transform = _original_transform
-	state = WALK
+	#self.global_transform = _original_transform
+	state = DISENGAGE
 
 func _on_ShootDistance_body_entered(body):
-	if body.is_in_group("Player") and state != DIE:
+	if body.is_in_group("Enemy") and state != DIE and state != DISENGAGE and state != IDLE or body.is_in_group("Player") and state != DIE and state != DISENGAGE:
 		$ShootTimer.start()
 		state = SHOOT
 	pass # Replace with function body.
 
 func _on_ShootDistance_body_exited(body):
-	if body.is_in_group("Player") and state != DIE:
+	if body.is_in_group("Player") and state != DIE and state != DISENGAGE or body.is_in_group("Enemy") and state != DIE and state != DISENGAGE:
 		$ShootTimer.stop()
 		state = ENGAGE
 	pass # Replace with function body.

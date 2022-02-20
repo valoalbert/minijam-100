@@ -32,7 +32,8 @@ extents = Vector2( 6.5, 1.2 )
 [node name="WoodenDoor" type="StaticBody2D" groups=["Furniture"]]
 scale = Vector2( 5, 5 )
 script = ExtResource( 2 )
-health = 1
+health = 3
+points = 500
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )
@@ -52,10 +53,8 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 0.1, -0.600001 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2( 0.1, -0.599999 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )

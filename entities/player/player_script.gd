@@ -8,10 +8,30 @@ var health : int = 1
 enum {
 	IDLE,
 	WALK,
-	HIT
+	HIT,
+	DEAD
 }
 
 var state = IDLE
+
+func _ready():
+	GameManager.connect("player_dead", self, "_on_player_dead")
+	self.scale = Vector2(1.3,1.3)
+
+func _physics_process(_delta):
+	if state != DEAD:
+		look_at(get_global_mouse_position())
+		get_input()
+		match state:
+			IDLE:
+				$AnimationPlayer.play("idle")
+			WALK:
+				$AttackHitbox/CollisionShape2D.disabled = true
+				$AnimationPlayer.play("walk")
+			HIT:
+				$AnimationPlayer.play("hit")
+				
+		velocity = move_and_slide(velocity)
 
 func get_input():
 	velocity = Vector2.ZERO
@@ -31,33 +51,29 @@ func get_input():
 			velocity.y -= 1
 			state = WALK
 			
-	if Input.is_action_just_pressed("attack") and state == IDLE:
+	if Input.is_action_just_pressed("attack"):
 		state = HIT
 		$AttackTimer.start()
 	
 	velocity = velocity.normalized() * speed
 
-func _physics_process(_delta):
-	look_at(get_global_mouse_position())
-	get_input()
-	match state:
-		IDLE:
-			$AnimationPlayer.play("idle")
-		WALK:
-			$AnimationPlayer.play("walk")
-		HIT:
-			$AnimationPlayer.play("hit")
-			
-	velocity = move_and_slide(velocity)
-
 func die():
+	state = DEAD
+	GameManager.emit_signal("player_dead")
+	GameManager.get_node("PlayerData").player_ko = true
 	print("dead")
 
 func _on_AttackTimer_timeout():
-	state = IDLE
+	if state != DEAD:
+		state = IDLE
 	pass # Replace with function body.
 
 func _on_AttackHitbox_body_entered(body):
 	if body.is_in_group("Furniture") or body.is_in_group("Enemy"):
 		body.on_get_hit(1)
 	pass # Replace with function body.
+
+func _on_player_dead():
+	$AnimationPlayer.play("down")
+	$CollisionShape2D.queue_free()
+	

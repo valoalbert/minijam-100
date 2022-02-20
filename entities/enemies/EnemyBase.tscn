@@ -167,8 +167,9 @@ tracks/1/keys = {
 scale = Vector2( 1.5, 1.5 )
 z_index = 1
 collision_layer = 2
-collision_mask = 5
+collision_mask = 7
 script = ExtResource( 2 )
+points = 1000
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3.1, 3.1 )

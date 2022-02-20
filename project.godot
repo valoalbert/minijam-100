@@ -18,16 +18,22 @@ _global_script_classes=[ {
 "class": "Furniture",
 "language": "GDScript",
 "path": "res://entities/furniture/FurnitureClass.gd"
+}, {
+"base": "Node2D",
+"class": "load_player",
+"language": "GDScript",
+"path": "res://scenes/levels/SecondFloor.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",
-"Furniture": ""
+"Furniture": "",
+"load_player": ""
 }
 
 [application]
 
 config/name="mini jam 100"
-run/main_scene="res://scenes/levels/TestRoom.tscn"
+run/main_scene="res://scenes/levels/FirtsFloor.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -81,6 +87,11 @@ attack={
 reset={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":82,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_reset={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":80,"unicode":0,"echo":false,"script":null)
  ]
 }
 

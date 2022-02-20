@@ -7,7 +7,7 @@
 extents = Vector2( 18.5, 31 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 13.5, 17.5 )
+extents = Vector2( 10.2692, 11.4615 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -47,9 +47,22 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 3, 3 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0002 ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "down"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -156,14 +169,8 @@ collision_mask = 12
 script = ExtResource( 1 )
 speed = 300
 
-[node name="AttackHitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
-position = Vector2( 20, -11 )
-shape = SubResource( 6 )
-disabled = true
-
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -1.53846, 0.769231 )
 rotation = 1.5708
 scale = Vector2( 3, 3 )
 z_index = 1
@@ -171,13 +178,16 @@ texture = ExtResource( 2 )
 hframes = 8
 frame = 3
 
+[node name="AttackHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
+position = Vector2( 20, -11 )
+shape = SubResource( 6 )
+disabled = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.5, 0.5 )
-limit_left = 0
-limit_top = -200
-limit_right = 1480
-limit_bottom = 880
+zoom = Vector2( 0.7, 0.7 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 drag_margin_left = 0.1
@@ -191,7 +201,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -14.5, -11.5 )
+position = Vector2( -11.2692, -5.46154 )
 shape = SubResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -202,7 +212,7 @@ anims/idle = SubResource( 4 )
 anims/walk = SubResource( 5 )
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.32
 
 [connection signal="body_entered" from="AttackHitbox" to="." method="_on_AttackHitbox_body_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

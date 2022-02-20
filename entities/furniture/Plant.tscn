@@ -33,6 +33,7 @@ radius = 7.11758
 scale = Vector2( 5, 5 )
 script = ExtResource( 2 )
 health = 1
+points = 100
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )
