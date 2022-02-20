@@ -4,6 +4,7 @@ class_name Enemy
 
 export (int) var health = 1
 export (int) var speed = 100
+export (int) var points = 100
 enum {
 	PATROL,
 	ENGAGE,
@@ -124,6 +125,8 @@ func on_get_hit(damage):
 		die()
 
 func die():
+	GameManager.get_node("PlayerData").on_enemy_killed()
+	GameManager.get_node("PlayerData").on_get_points(points)
 	state = DIE
 	$AnimationPlayer.play("ko")
 	$Collider.queue_free()

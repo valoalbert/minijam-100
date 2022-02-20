@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Debug="*res://autoload/debug.gd"
+GameManager="*res://autoload/GameManager.tscn"
 
 [display]
 

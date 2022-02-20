@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/ChakraPetch-BoldItalic.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/points_text_script.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+outline_size = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 656, 60 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "shake"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 656, 60 ), Vector2( 655, 53 ), Vector2( 649, 63 ), Vector2( 659, 69 ), Vector2( 656, 60 ) ]
+}
+
+[node name="GameplayUI" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+margin_left = 656.0
+margin_top = 60.0
+margin_right = 978.0
+margin_bottom = 158.0
+rect_rotation = -6.9
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PointsText" type="RichTextLabel" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "test"
+text = "test"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+playback_speed = 3.0
+anims/RESET = SubResource( 2 )
+anims/shake = SubResource( 3 )
