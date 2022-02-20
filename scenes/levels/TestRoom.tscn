@@ -53,27 +53,21 @@ points = 100
 
 [node name="Plant" parent="Furniture" instance=ExtResource( 10 )]
 position = Vector2( 841, 43 )
-points = 100
 
 [node name="Plant2" parent="Furniture" instance=ExtResource( 10 )]
 position = Vector2( 645, 45 )
-points = 100
 
 [node name="Plant3" parent="Furniture" instance=ExtResource( 10 )]
 position = Vector2( 741, 43 )
-points = 100
 
 [node name="Plant4" parent="Furniture" instance=ExtResource( 10 )]
 position = Vector2( 353, 537 )
-points = 100
 
 [node name="Plant5" parent="Furniture" instance=ExtResource( 10 )]
 position = Vector2( 537, 537 )
-points = 100
 
 [node name="Chair" parent="Furniture" instance=ExtResource( 1 )]
 position = Vector2( 246, 111 )
-points = 100
 
 [node name="GlassDoor" parent="Furniture" instance=ExtResource( 6 )]
 position = Vector2( 587, 442 )
@@ -87,12 +81,10 @@ points = 200
 [node name="Computer2" parent="Furniture" instance=ExtResource( 8 )]
 position = Vector2( 723, 444 )
 rotation = 1.5708
-points = 200
 
 [node name="Chair2" parent="Furniture" instance=ExtResource( 1 )]
 position = Vector2( 671, 446 )
 rotation = 1.5708
-points = 100
 
 [node name="GameplayUI" parent="." instance=ExtResource( 13 )]
 
@@ -108,4 +100,4 @@ position = Vector2( 789, 258 )
 position = Vector2( 857, 260 )
 
 [node name="EnemyBase" parent="." instance=ExtResource( 17 )]
-position = Vector2( 382, 171 )
+position = Vector2( 768, 167 )

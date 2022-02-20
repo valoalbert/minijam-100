@@ -15,6 +15,7 @@ enum {
 var state = IDLE
 
 func _ready():
+	GameManager.connect("enemy_die", self, "_camera_shake")
 	GameManager.connect("player_dead", self, "_on_player_dead")
 	self.scale = Vector2(1.3,1.3)
 
@@ -72,6 +73,9 @@ func _on_AttackHitbox_body_entered(body):
 	if body.is_in_group("Furniture") or body.is_in_group("Enemy"):
 		body.on_get_hit(1)
 	pass # Replace with function body.
+
+func _camera_shake():
+	$CameraShake.play("shake")
 
 func _on_player_dead():
 	$AnimationPlayer.play("down")

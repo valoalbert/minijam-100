@@ -131,6 +131,7 @@ func on_get_hit(damage):
 func die():
 	GameManager.get_node("PlayerData").on_enemy_killed()
 	GameManager.get_node("PlayerData").on_get_points(points)
+	GameManager.emit_signal("enemy_die")
 	state = DIE
 	$AnimationPlayer.play("ko")
 	$Collider.queue_free()

@@ -10,3 +10,4 @@ data_*/
 assets/.DS_Store
 .DS_Store
 *.code-workspace
+builds
