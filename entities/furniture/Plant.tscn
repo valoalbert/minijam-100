@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/furniture.png" type="Texture" id=1]
+[ext_resource path="res://entities/furniture/plant_script.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 174, 47 )
 
 [sub_resource type="Animation" id=2]
-resource_name = "plant_break"
+resource_name = "break"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:region_rect")
@@ -22,8 +23,16 @@ tracks/0/keys = {
 "values": [ Rect2( 1, 1, 11, 13 ), Rect2( 1, 16, 13, 13 ) ]
 }
 
-[node name="Plant" type="Node2D"]
+[sub_resource type="CircleShape2D" id=3]
+radius = 5.6
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 7.11758
+
+[node name="Plant" type="StaticBody2D" groups=["Furniture"]]
 scale = Vector2( 5, 5 )
+script = ExtResource( 2 )
+health = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )
@@ -34,7 +43,17 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/plant_break = SubResource( 2 )
+anims/break = SubResource( 2 )
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2( -1, -0.4 )
+shape = SubResource( 3 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( -1.1, -0.0999988 )
+shape = SubResource( 4 )

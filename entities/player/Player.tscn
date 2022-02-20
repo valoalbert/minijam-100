@@ -86,7 +86,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.0171791, 0.356098 ),
+"times": PoolRealArray( 0.0171791, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -151,8 +151,9 @@ tracks/1/keys = {
 }
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
-collision_mask = 4
+collision_mask = 12
 script = ExtResource( 1 )
+speed = 300
 
 [node name="AttackHitbox" type="Area2D" parent="."]
 
@@ -201,4 +202,5 @@ anims/walk = SubResource( 5 )
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.4
 
+[connection signal="body_entered" from="AttackHitbox" to="." method="_on_AttackHitbox_body_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

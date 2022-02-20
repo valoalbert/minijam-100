@@ -33,7 +33,7 @@ position = Vector2( 682, 157 )
 position = Vector2( 117, 66 )
 
 [node name="LongDesk" parent="Furniture" instance=ExtResource( 7 )]
-position = Vector2( 323, 60 )
+position = Vector2( 326, 48 )
 
 [node name="Computer" parent="Furniture" instance=ExtResource( 8 )]
 position = Vector2( 243, 54 )
@@ -79,4 +79,4 @@ position = Vector2( 671, 446 )
 rotation = 1.5708
 
 [node name="EnemyBase" parent="." instance=ExtResource( 12 )]
-position = Vector2( 762, 209 )
+position = Vector2( 351, 200 )
