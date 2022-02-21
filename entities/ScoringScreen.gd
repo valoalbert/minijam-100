@@ -13,7 +13,7 @@ func _ready():
 	furniture = GameManager.get_node("PlayerData").furniture_counter
 	deads = GameManager.get_node("PlayerData").deads_counter
 	secrets = GameManager.get_node("PlayerData").secrets
-	final_time = GameManager.finalTime
+	final_time = GameManager.final_time
 
 	$Control/EnemiesKillText.text = "Enemies KO'd: " + str(enemies)
 	$Control/FurnitureText.text = "Furniture Destroyed: " + str(furniture)
@@ -28,8 +28,8 @@ func _unhandled_input(event):
 		GameManager.get_node("PlayerData").enemies_counter = 0
 		GameManager.get_node("PlayerData").cards_counter = 0
 		GameManager.get_node("PlayerData").furniture_counter = 0
-		GameManager.time = 0
-		GameManager.finalTime = "0m00s"
+		GameManager.final_time = "0m00s"
 		GameManager.game_start = true
+		GameManager.emit_signal("on_game_started")
 		GameManager.play_gameplay()
 		get_tree().change_scene(next_scene_path)

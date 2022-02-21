@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/ChakraPetch-BoldItalic.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://DebugMenu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 1 )
+
+[node name="DebugMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+level_1 = "res://scenes/levels/FirtsFloor.tscn"
+level_2 = "res://scenes/levels/SecondFloor.tscn"
+level_3 = "res://scenes/levels/ThridFloor.tscn"
+level_4 = "res://scenes/levels/ForthFloor.tscn"
+level_5 = "res://scenes/levels/FifthFloor.tscn"
+
+[node name="Level 1" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 256.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+text = "Level 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level 2" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 192.0
+margin_right = 256.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+text = "Level 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level 3" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 320.0
+margin_right = 256.0
+margin_bottom = 384.0
+custom_fonts/font = SubResource( 1 )
+text = "Level 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level 4" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 448.0
+margin_right = 256.0
+margin_bottom = 512.0
+custom_fonts/font = SubResource( 1 )
+text = "Level 4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level 5" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 576.0
+margin_right = 256.0
+margin_bottom = 640.0
+custom_fonts/font = SubResource( 1 )
+text = "Level 5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Level 1" to="." method="_on_Level_1_pressed"]
+[connection signal="pressed" from="Level 2" to="." method="_on_Level_2_pressed"]
+[connection signal="pressed" from="Level 3" to="." method="_on_Level_3_pressed"]
+[connection signal="pressed" from="Level 4" to="." method="_on_Level_4_pressed"]
+[connection signal="pressed" from="Level 5" to="." method="_on_Level_5_pressed"]

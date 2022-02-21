@@ -10,6 +10,7 @@ func _on_volume_value_changed(value):
 
 
 func _on_Button_pressed():
+	GameManager.emit_signal("on_game_started")
 	GameManager.game_start = true
 	get_tree().change_scene("res://scenes/levels/FirtsFloor.tscn")
 	GameManager.play_gameplay()

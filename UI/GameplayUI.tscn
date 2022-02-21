@@ -16,7 +16,7 @@ font_data = ExtResource( 1 )
 script/source = "extends Label
 
 func _process(delta):
-	text = GameManager.finalTime
+	text = GameManager.final_time
 	pass
 	
 "

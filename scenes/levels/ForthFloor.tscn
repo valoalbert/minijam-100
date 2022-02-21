@@ -34,7 +34,7 @@ tile_data = PoolIntArray( -196581, 6, 0, -196580, 11, 0, -196579, 11, 0, -196578
 
 [node name="Furniture" type="Node2D" parent="."]
 
-[node name="WoodenDoor" type="StaticBody2D" parent="Furniture" groups=["Furniture"]]
+[node name="WoodenDoor" type="StaticBody2D" parent="Furniture"]
 position = Vector2( 1736, 1158 )
 rotation = 1.5708
 scale = Vector2( 5, 5 )
