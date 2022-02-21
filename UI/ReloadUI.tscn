@@ -22,7 +22,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
-modulate = Color( 0, 0, 0, 0.443137 )
+modulate = Color( 0.435294, 0.0352941, 0.0352941, 0.666667 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 0, 0, 1 )
@@ -64,7 +64,7 @@ margin_right = 216.0
 margin_bottom = 296.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
-custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 3
 custom_fonts/font = SubResource( 2 )
 text = "Press R to reload"

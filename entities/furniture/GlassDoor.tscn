@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/furniture.png" type="Texture" id=1]
 [ext_resource path="res://entities/furniture/glass_door_script.gd" type="Script" id=2]
+[ext_resource path="res://sounds/Bottle Break.wav" type="AudioStream" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -52,12 +53,15 @@ __meta__ = {
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2( 3.8147e-07, -0.499999 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 0.1, -0.600001 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
+
+[node name="Hitsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0
+pitch_scale = 1.13

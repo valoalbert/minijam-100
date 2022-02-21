@@ -5,8 +5,12 @@ class_name Furniture
 export (int) var health
 export (int) var points
 
+func _ready():
+	$Hitsound.volume_db = GameManager.volume + 5.0
+	pass
 func on_get_hit(damage):
 	health -= damage
+	$Hitsound.playing = true
 	
 	match health:
 		3:

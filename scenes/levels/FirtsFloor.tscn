@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/levels/FirtsFloor.gd" type="Script" id=1]
 [ext_resource path="res://assets/TileMap.tscn" type="PackedScene" id=2]
@@ -16,6 +16,9 @@
 [sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 9 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18.7524, 67.7546 )
 
 [node name="FirtsFloor" type="Node2D"]
 script = ExtResource( 1 )
@@ -191,6 +194,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label3" type="RichTextLabel" parent="."]
+margin_left = 874.0
+margin_top = 44.0
+margin_right = 1207.0
+margin_bottom = 322.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[wave][center]You are in a
+nuclear plant"
+text = "You are in a
+nuclear plant"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 61, 741 )
 
@@ -201,3 +223,10 @@ next_scene_path = "res://scenes/levels/SecondFloor.tscn"
 [node name="GameplayUI" parent="." instance=ExtResource( 11 )]
 
 [node name="ReloadUI" parent="." instance=ExtResource( 12 )]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 10.4952, 807.509 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 8.75241, -57.7546 )
+shape = SubResource( 2 )

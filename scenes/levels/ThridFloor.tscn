@@ -5,18 +5,16 @@
 [ext_resource path="res://scenes/levels/ThridFloor.gd" type="Script" id=3]
 [ext_resource path="res://entities/enemies/EnemyBase.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/furniture/Plant.tscn" type="PackedScene" id=5]
-[ext_resource path="res://entities/furniture/Toilet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/levels/Secretroom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://fonts/ChakraPetch-BoldItalic.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://entities/LevelChange.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/GameplayUI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/ReloadUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/levels/SecretReveal.tscn" type="PackedScene" id=11]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 48
 font_data = ExtResource( 7 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 21, 43.5 )
 
 [node name="ThridFloor" type="Node2D"]
 script = ExtResource( 3 )
@@ -35,6 +33,9 @@ position = Vector2( 159, 340 )
 [node name="Plant" parent="Furniture" instance=ExtResource( 5 )]
 position = Vector2( 131, 864 )
 
+[node name="Plant6" parent="Furniture" instance=ExtResource( 5 )]
+position = Vector2( 129, 1118 )
+
 [node name="Plant2" parent="Furniture" instance=ExtResource( 5 )]
 position = Vector2( 1507, 765 )
 
@@ -50,74 +51,33 @@ position = Vector2( 367, 763 )
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 111, 47 )
 
-[node name="Secretroom" type="Node2D" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-
-[node name="Tween" type="Tween" parent="Secretroom"]
-
-[node name="TileMap" parent="Secretroom" instance=ExtResource( 2 )]
-tile_data = PoolIntArray( 1572849, 6, 0, 1572850, 11, 0, 1572851, 11, 0, 1572852, 11, 0, 1572853, 11, 0, 1572854, 11, 0, 1572855, 11, 0, 1572856, 11, 0, 1572857, 11, 0, 1572858, 11, 0, 1572859, 11, 0, 1572860, 11, 0, 1572861, 11, 0, 1572862, 11, 0, 1572863, 11, 0, 1507328, 11, 0, 1638385, 1, 0, 1638386, 0, 0, 1638387, 0, 0, 1638388, 0, 0, 1638389, 0, 0, 1638390, 1, 0, 1638391, 0, 0, 1638392, 0, 0, 1638393, 0, 0, 1638394, 0, 0, 1638395, 0, 0, 1638396, 0, 0, 1638397, 0, 0, 1638398, 0, 0, 1638399, 0, 0, 1572864, 0, 0, 1703921, 1, 0, 1703922, 0, 0, 1703923, 0, 0, 1703924, 0, 0, 1703925, 0, 0, 1703926, 1, 0, 1703927, 0, 0, 1703928, 0, 0, 1703929, 0, 0, 1703930, 0, 0, 1703931, 0, 0, 1703932, 0, 0, 1703933, 0, 0, 1703934, 0, 0, 1703935, 0, 0, 1638400, 0, 0, 1769457, 1, 0, 1769458, 0, 0, 1769459, 0, 0, 1769460, 0, 0, 1769461, 0, 0, 1769462, 1, 0, 1769463, 0, 0, 1769464, 0, 0, 1769465, 0, 0, 1769466, 0, 0, 1769467, 0, 0, 1769468, 0, 0, 1769469, 0, 0, 1769470, 0, 0, 1769471, 0, 0, 1703936, 0, 0, 1834993, 1, 0, 1834994, 0, 0, 1834995, 0, 0, 1834996, 0, 0, 1834997, 0, 0, 1834998, 1, 0, 1834999, 0, 0, 1835000, 0, 0, 1835001, 0, 0, 1835002, 0, 0, 1835003, 0, 0, 1835004, 0, 0, 1835005, 0, 0, 1835006, 0, 0, 1835007, 0, 0, 1769472, 0, 0, 1900529, 1, 0, 1900530, 0, 0, 1900531, 0, 0, 1900532, 0, 0, 1900533, 0, 0, 1900534, 0, 0, 1900535, 0, 0, 1900536, 0, 0, 1900537, 0, 0, 1900538, 0, 0, 1900539, 0, 0, 1900540, 0, 0, 1900541, 0, 0, 1900542, 0, 0, 1900543, 0, 0, 1835008, 0, 0, 1966065, 1, 0, 1966066, 0, 0, 1966067, 0, 0, 1966068, 0, 0, 1966069, 0, 0, 1966070, 0, 0, 1966071, 0, 0, 1966072, 0, 0, 1966073, 0, 0, 1966074, 0, 0, 1966075, 0, 0, 1966076, 0, 0, 1966077, 0, 0, 1966078, 0, 0, 1966079, 0, 0, 1900544, 0, 0, 2031601, 1, 0, 2031602, 11, 0, 2031603, 11, 0, 2031604, 11, 0, 2031605, 11, 0, 2031606, 7, 0, 2031607, 0, 0, 2031608, 0, 0, 2031609, 0, 0, 2031610, 0, 0, 2031611, 0, 0, 2031612, 0, 0, 2031613, 0, 0, 2031614, 0, 0, 2031615, 0, 0, 1966080, 0, 0, 1966081, 1, 0, 2097137, 1, 0, 2097138, 0, 0, 2097139, 0, 0, 2097140, 0, 0, 2097141, 0, 0, 2097142, 1, 0, 2097143, 0, 0, 2097144, 0, 0, 2097145, 0, 0, 2097146, 0, 0, 2097147, 0, 0, 2097148, 0, 0, 2097149, 0, 0, 2097150, 0, 0, 2097151, 0, 0, 2031616, 0, 0, 2031617, 1, 0, 2162673, 1, 0, 2162674, 0, 0, 2162675, 0, 0, 2162676, 0, 0, 2162677, 0, 0, 2162678, 1, 0, 2162679, 0, 0, 2162680, 0, 0, 2162681, 0, 0, 2162682, 0, 0, 2162683, 0, 0, 2162684, 0, 0, 2162685, 0, 0, 2162686, 0, 0, 2162687, 0, 0, 2097152, 0, 0, 2097153, 1, 0, 2228209, 1, 0, 2228210, 0, 0, 2228211, 0, 0, 2228212, 0, 0, 2228213, 0, 0, 2228214, 1, 0, 2228215, 0, 0, 2228216, 0, 0, 2228217, 0, 0, 2228218, 0, 0, 2228219, 0, 0, 2228220, 0, 0, 2228221, 0, 0, 2228222, 0, 0, 2228223, 0, 0, 2162688, 0, 0, 2162689, 1, 0, 2293745, 1, 0, 2293746, 0, 0, 2293747, 0, 0, 2293748, 0, 0, 2293749, 0, 0, 2293750, 0, 0, 2293751, 0, 0, 2293752, 0, 0, 2293753, 0, 0, 2293754, 0, 0, 2293755, 0, 0, 2293756, 0, 0, 2293757, 0, 0, 2293758, 0, 0, 2293759, 0, 0, 2228224, 0, 0, 2228225, 1, 0, 2359281, 1, 0, 2359282, 0, 0, 2359283, 0, 0, 2359284, 0, 0, 2359285, 0, 0, 2359286, 0, 0, 2359287, 0, 0, 2359288, 0, 0, 2359289, 0, 0, 2359290, 0, 0, 2359291, 0, 0, 2359292, 0, 0, 2359293, 0, 0, 2359294, 0, 0, 2359295, 0, 0, 2293760, 0, 0, 2293761, 1, 0, 2424817, 1, 0, 2424818, 11, 0, 2424819, 11, 0, 2424820, 11, 0, 2424821, 11, 0, 2424822, 7, 0, 2424823, 0, 0, 2424824, 0, 0, 2424825, 0, 0, 2424826, 0, 0, 2424827, 0, 0, 2424828, 0, 0, 2424829, 0, 0, 2424830, 0, 0, 2424831, 0, 0, 2359296, 0, 0, 2359297, 1, 0, 2490353, 1, 0, 2490354, 0, 0, 2490355, 0, 0, 2490356, 0, 0, 2490357, 0, 0, 2490358, 1, 0, 2490359, 0, 0, 2490360, 0, 0, 2490361, 0, 0, 2490362, 0, 0, 2490363, 0, 0, 2490364, 0, 0, 2490365, 0, 0, 2490366, 0, 0, 2490367, 0, 0, 2424832, 0, 0, 2424833, 1, 0, 2555889, 1, 0, 2555890, 0, 0, 2555891, 0, 0, 2555892, 0, 0, 2555893, 0, 0, 2555894, 0, 0, 2555895, 0, 0, 2555896, 0, 0, 2555897, 0, 0, 2555898, 0, 0, 2555899, 0, 0, 2555900, 0, 0, 2555901, 0, 0, 2555902, 0, 0, 2555903, 0, 0, 2490368, 0, 0, 2490369, 1, 0, 2621425, 1, 0, 2621426, 0, 0, 2621427, 0, 0, 2621428, 0, 0, 2621429, 0, 0, 2621430, 0, 0, 2621431, 0, 0, 2621432, 0, 0, 2621433, 0, 0, 2621434, 0, 0, 2621435, 0, 0, 2621436, 0, 0, 2621437, 0, 0, 2621438, 0, 0, 2621439, 0, 0, 2555904, 0, 0, 2555905, 1, 0, 2686961, 1, 0, 2686962, 0, 0, 2686963, 0, 0, 2686964, 0, 0, 2686965, 0, 0, 2686966, 1, 0, 2686967, 0, 0, 2686968, 0, 0, 2686969, 0, 0, 2686970, 0, 0, 2686971, 0, 0, 2686972, 0, 0, 2686973, 0, 0, 2686974, 0, 0, 2686975, 0, 0, 2621440, 0, 0, 2621441, 1, 0, 2752497, 8, 0, 2752498, 3, 0, 2752499, 3, 0, 2752500, 3, 0, 2752501, 3, 0, 2752502, 3, 0, 2752503, 3, 0, 2752504, 3, 0, 2752505, 3, 0, 2752506, 3, 0, 2752507, 3, 0, 2752508, 3, 0, 2752509, 3, 0, 2752510, 3, 0, 2752511, 3, 0, 2686976, 3, 0, 2686977, 9, 0 )
-
-[node name="FurnitureSecret" type="Node2D" parent="Secretroom"]
-
-[node name="Toilet" parent="Secretroom/FurnitureSecret" instance=ExtResource( 6 )]
-position = Vector2( -487, 1004 )
-
-[node name="Toilet2" parent="Secretroom/FurnitureSecret" instance=ExtResource( 6 )]
-position = Vector2( -484, 1278 )
-
-[node name="Toilet3" parent="Secretroom/FurnitureSecret" instance=ExtResource( 6 )]
-position = Vector2( -508, 1559 )
-rotation = -1.5708
-
-[node name="WoodenDoor" parent="Secretroom/FurnitureSecret" instance=ExtResource( 1 )]
-position = Vector2( -381, 1163 )
-rotation = 1.5708
-
-[node name="WoodenDoor2" parent="Secretroom/FurnitureSecret" instance=ExtResource( 1 )]
-position = Vector2( -385, 1393 )
-rotation = 1.5708
-
-[node name="WoodenDoor3" parent="Secretroom/FurnitureSecret" instance=ExtResource( 1 )]
-position = Vector2( -385, 1562 )
-rotation = 1.5708
-
-[node name="Label2" type="RichTextLabel" parent="Secretroom"]
-margin_left = -333.0
-margin_top = 1242.0
-margin_right = 39.0
-margin_bottom = 1448.0
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
-custom_constants/shadow_offset_x = 3
-custom_constants/shadow_offset_y = 3
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "[wave]Oh DAMN you
-found a secret"
-text = "Oh DAMN you
-found a secret"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Secretroom" parent="." instance=ExtResource( 6 )]
 
 [node name="EnemyBase" parent="." instance=ExtResource( 4 )]
-position = Vector2( 993, 943 )
+position = Vector2( 835, 1082 )
 rotation = 3.14159
 
 [node name="EnemyBase2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 551, 1024 )
+position = Vector2( 693, 962 )
+rotation = 3.14159
+
+[node name="EnemyBase4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 920, 934 )
+rotation = 3.14159
+
+[node name="EnemyBase5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1041, 804 )
+rotation = 3.14159
+
+[node name="EnemyBase6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1441, 1101 )
 rotation = 3.14159
 
 [node name="EnemyBase3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 674, 843 )
+position = Vector2( 766, 808 )
 rotation = 3.14159
 
-[node name="SecretReveal" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretReveal"]
-position = Vector2( 25, 1142 )
-shape = SubResource( 2 )
+[node name="SecretReveal" parent="." instance=ExtResource( 11 )]
 
 [node name="LevelChange" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1541, 1158 )
@@ -127,5 +87,26 @@ next_scene_path = "res://scenes/levels/ForthFloor.tscn"
 [node name="GameplayUI" parent="." instance=ExtResource( 9 )]
 
 [node name="ReloadUI" parent="." instance=ExtResource( 10 )]
+
+[node name="Label3" type="RichTextLabel" parent="."]
+margin_left = 29.0
+margin_top = 326.0
+margin_right = 362.0
+margin_bottom = 604.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[wave][center]Go to the core
+and
+DESTROY IT!"
+text = "Go to the core
+and
+DESTROY IT!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="body_entered" from="SecretReveal" to="." method="_on_SecretReveal_body_entered"]

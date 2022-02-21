@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://entities/player/player_script.gd" type="Script" id=1]
 [ext_resource path="res://assets/player_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://sounds/bfh1_hit_07.ogg" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 18.5, 31 )
@@ -249,6 +250,10 @@ wait_time = 0.32
 playback_speed = 2.0
 anims/RESET = SubResource( 11 )
 anims/shake = SubResource( 10 )
+
+[node name="Hitsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0
 
 [connection signal="body_entered" from="AttackHitbox" to="." method="_on_AttackHitbox_body_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

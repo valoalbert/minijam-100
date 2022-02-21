@@ -7,7 +7,7 @@ var furniture_counter : int = 0
 var enemies_counter : int = 0
 var cards_counter : int = 0
 var deads_counter : int = 0
-var secrest : int = 0
+var secrets : int = 0
 var player_ko : bool = false
 
 func _ready():
@@ -44,6 +44,9 @@ func on_reset_cards():
 
 func on_player_dead():
 	deads_counter += 1
+
+func on_secret_revealed():
+	secrets += 1
 
 func on_reset_deads():
 	deads_counter = 0

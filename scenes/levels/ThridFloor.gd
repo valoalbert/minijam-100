@@ -9,7 +9,7 @@ func _on_SecretReveal_body_entered(body):
 		Color(1, 1, 1, 0), Color(1, 1, 1, 1), 2.0, 
 	  Tween.TRANS_LINEAR, Tween.EASE_IN)
 		tween.start()
-		
+		GameManager.get_node("PlayerData").on_secret_revealed()
 		room_revealed =  true
 
 	pass # Replace with function body.

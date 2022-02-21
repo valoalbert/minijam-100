@@ -12,6 +12,7 @@ func _unhandled_input(event):
 		GameManager.get_node("PlayerData").enemies_counter = get_parent().enemies
 		GameManager.get_node("PlayerData").cards_counter = get_parent().cards
 		GameManager.get_node("PlayerData").furniture_counter = get_parent().furniture
+		GameManager.get_node("PlayerData").furniture_counter = get_parent().secrets
 		get_tree().reload_current_scene()
 
 func _show():

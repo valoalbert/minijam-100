@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://fonts/ChakraPetch-BoldItalic.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://img/mainmenu.jpg" type="Texture" id=3]
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform float speed = 2.0;
+uniform float frequency_y = 5.0;
+uniform float frequency_x = 5.0;
+uniform float amplitude_y = 50.0;
+uniform float amplitude_x = 25.0;
+uniform float inclination = 50.0;
+
+void vertex() {
+	VERTEX.y += sin((UV.x - TIME * speed) * frequency_y) * amplitude_y * UV.x;
+	VERTEX.x += cos((UV.y - TIME * speed) * frequency_x) * amplitude_x * UV.x;
+	VERTEX.x -= UV.y * inclination;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/speed = 3.0
+shader_param/frequency_y = 0.5
+shader_param/frequency_x = 0.5
+shader_param/amplitude_y = 0.5
+shader_param/amplitude_x = 0.5
+shader_param/inclination = 0.5
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 38
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -22.0
+margin_top = -14.0
+margin_right = 1046.0
+margin_bottom = 796.0
+color = Color( 0.0509804, 0.00392157, 0.00392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.498039 )
+material = SubResource( 5 )
+position = Vector2( 512, 385.888 )
+scale = Vector2( 8, 4.7764 )
+texture = ExtResource( 3 )
+
+[node name="WinText" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 104.0
+margin_top = 192.0
+margin_right = 929.0
+margin_bottom = 323.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+custom_fonts/font = SubResource( 1 )
+text = "Nuclear Vandellòs"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="WinText2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 320.0
+margin_top = 344.0
+margin_right = 705.0
+margin_bottom = 423.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 2 )
+text = "Music volume"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="WinText3" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 223.0
+margin_top = 698.0
+margin_right = 827.0
+margin_bottom = 777.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 1
+custom_fonts/font = SubResource( 6 )
+text = "Disclaimer: The game is not as epic as this"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="volume" type="HSlider" parent="."]
+margin_left = 336.0
+margin_top = 440.0
+margin_right = 680.0
+margin_bottom = 472.0
+min_value = -80.0
+max_value = -20.0
+value = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 400.0
+margin_top = 520.0
+margin_right = 632.0
+margin_bottom = 616.0
+custom_fonts/font = SubResource( 3 )
+text = "Game Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="volume" to="." method="_on_volume_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
